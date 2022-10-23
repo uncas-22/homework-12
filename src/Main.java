@@ -16,10 +16,32 @@ public class Main {
             System.out.println(year + " - не является високосным годом");
         }
     }
+    public static void recommendApplicationVersion(int clientOS, int deviceYear) {
+        boolean deviceIsOld = isDeviseOld(deviceYear);
+        System.out.print("Установите ");
+        if (deviceIsOld) {
+            System.out.print("lite ");
+        }
+        System.out.print("версию для ");
+        if (clientOS == 0) {
+            System.out.print("ios");
+        } else {
+            System.out.println("Android");
+        }
+    }
+    private static boolean isDeviseOld(int deviceYear) {
+        int currentYear = LocalDate.now().getYear();
+        return deviceYear < currentYear;
+    }
+
     public static void main(String[] args) {
         System.out.println("Урок 12 Методы. Задача 1");
         int year = 2022;
         printIsLeapYear(year);
-
+        System.out.println("Урок 12 Методы. Задача 2");
+        int clientOS = 1;
+        int deviceYear = 2022;
+        int currentYear = LocalDate.now().getYear();
+        recommendApplicationVersion(clientOS, deviceYear);
     }
 }

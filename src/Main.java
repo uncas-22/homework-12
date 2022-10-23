@@ -33,7 +33,18 @@ public class Main {
         int currentYear = LocalDate.now().getYear();
         return deviceYear < currentYear;
     }
-
+public static void calculateDeliviriDays(int deliveriDistance) {
+        int result = 1;
+        if (deliveriDistance > 20) {
+            result++;
+        }
+        if (deliveriDistance > 60 && deliveriDistance <= 100) {
+            result++;
+        } else {
+            System.out.println("Невозможно рассчитать срок доставки");
+        }
+    System.out.println("Потребуется дней: " + result);
+}
     public static void main(String[] args) {
         System.out.println("Урок 12 Методы. Задача 1");
         int year = 2022;
@@ -43,5 +54,8 @@ public class Main {
         int deviceYear = 2022;
         int currentYear = LocalDate.now().getYear();
         recommendApplicationVersion(clientOS, deviceYear);
+        System.out.println("Урок 12 Методы. Задача 3");
+        int deliveriDistance = 95;
+        calculateDeliviriDays(deliveriDistance);
     }
 }
